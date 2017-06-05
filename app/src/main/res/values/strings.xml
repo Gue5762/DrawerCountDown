@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">DrawerCountDown</string>
+    <string name="of_bills"># of Bills</string>
+    <string name="drawer_counted_down_to">Drawer Counted Down To</string>
+    <string name="input">Input</string>
+    <string name="drawer">Drawer</string>
+    <string name="safe">Safe</string>
+    <string name="pennies">Pennies</string>
+    <string name="of_coins"># of Coins</string>
+    <string name="of_rolls"># of Rolls</string>
+    <string name="_000_00">000.00</string>
+    <string name="nickels">Nickels</string>
+    <string name="dimes">Dimes</string>
+    <string name="quarters">Quarters</string>
+    <string name="dollars">Dollars</string>
+    <string name="fives">Fives</string>
+    <string name="tens">Tens</string>
+    <string name="twenties">Twenties</string>
+    <string name="fifties">Fifties</string>
+    <string name="hundreds">Hundreds</string>
+    <string name="total">Total</string>
+</resources>

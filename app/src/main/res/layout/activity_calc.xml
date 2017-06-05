@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_calc"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="lunacyarts.abgstudios.butany62.accessories.drawercountdown.CalcActivity">
+
+    <LinearLayout
+        android:id="@+id/Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/reset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            app:backgroundTint="@android:color/holo_blue_dark"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_menu_revert" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            app:backgroundTint="@android:color/holo_blue_dark"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_menu_help" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="vertical"
+        android:weightSum="1">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:stretchColumns="0">
+
+            <TableRow
+                android:id="@+id/FinalInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/DrawerFinal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/drawer_counted_down_to"
+                    android:inputType="number"
+                    android:textColor="@color/colorSafeText"
+                    android:textColorHint="@color/colorSafeText" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/Titles"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/Input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:text="@string/input"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorInputText" />
+
+                <TextView
+                    android:id="@+id/Drawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="0.03"
+                    android:background="@color/colorDrawerBG"
+                    android:text="@string/drawer"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorDrawerText" />
+
+                <TextView
+                    android:id="@+id/Safe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_weight=".10"
+                    android:background="@color/colorSafeBG"
+                    android:text="@string/safe"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorSafeText" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/PenniesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/Pennies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:background="@color/colorTitleBG"
+                    android:text="@string/pennies"
+                    android:textColor="@color/colorTitleText" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/PenniesCoins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/PennyNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_coins"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:background="@color/colorDrawerBG" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:background="@color/colorSafeBG" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/PenniesRolls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/PennyNumberR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_rolls"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/PennyDrawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="0.03"
+                    android:background="@color/colorDrawerBG"
+                    android:lines="1"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorDrawerText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/PennySafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_weight="0.10"
+                    android:background="@color/colorSafeBG"
+                    android:lines="1"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorSafeText"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/NickelsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.03">
+
+                <TextView
+                    android:id="@+id/Nickels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:background="@color/colorTitleBG"
+                    android:text="@string/nickels"
+                    android:textColor="@color/colorTitleText" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/NickelsCoins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.03">
+
+                <EditText
+                    android:id="@+id/NickelsNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_coins"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:background="@color/colorDrawerBG" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:background="@color/colorSafeBG" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/NickelsRolls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.03">
+
+                <EditText
+                    android:id="@+id/NickelsNumberR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_rolls"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/NickelsDrawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="0.03"
+                    android:background="@color/colorDrawerBG"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorDrawerText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/NickelsSafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:layout_weight="0.10"
+                    android:background="@color/colorSafeBG"
+                    android:lines="1"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorSafeText"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/DimesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.03">
+
+                <TextView
+                    android:id="@+id/Dimes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:background="@color/colorTitleBG"
+                    android:text="@string/dimes"
+                    android:textColor="@color/colorTitleText" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/DimesCoins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.03">
+
+                <EditText
+                    android:id="@+id/DimesNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_coins"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:background="@color/colorDrawerBG" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:background="@color/colorSafeBG" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/DimesRolls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.03">
+
+                <EditText
+                    android:id="@+id/DimesNumberR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_rolls"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/DimesDrawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="0.03"
+                    android:background="@color/colorDrawerBG"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorDrawerText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/DimesSafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_weight="0.10"
+                    android:background="@color/colorSafeBG"
+                    android:lines="1"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorSafeText"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/QuartersTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/Quarters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:background="@color/colorTitleBG"
+                    android:text="@string/quarters"
+                    android:textColor="@color/colorTitleText" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/QuartersCoins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/QuartersNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_coins"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:background="@color/colorDrawerBG" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:background="@color/colorSafeBG" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/QuartersRolls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/QuartersNumberR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_rolls"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/QuartersDrawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="0.03"
+                    android:background="@color/colorDrawerBG"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorDrawerText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/QuartersSafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_weight="0.10"
+                    android:background="@color/colorSafeBG"
+                    android:lines="1"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorSafeText"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/DollarsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/Dollars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:background="@color/colorTitleBG"
+                    android:text="@string/dollars"
+                    android:textColor="@color/colorTitleText" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/DollarsBills"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/DollarsNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_bills"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/DollarsDrawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="0.03"
+                    android:background="@color/colorDrawerBG"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorDrawerText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/DollarsSafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:layout_weight="0.10"
+                    android:background="@color/colorSafeBG"
+                    android:lines="1"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorSafeText"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/FivesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/Fives"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:background="@color/colorTitleBG"
+                    android:text="@string/fives"
+                    android:textColor="@color/colorTitleText" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/FivesBills"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/FivesNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_bills"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/FivesDrawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="0.03"
+                    android:background="@color/colorDrawerBG"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorDrawerText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/FivesSafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:layout_weight="0.10"
+                    android:background="@color/colorSafeBG"
+                    android:lines="1"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorSafeText"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/TensTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/Tens"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:background="@color/colorTitleBG"
+                    android:text="@string/tens"
+                    android:textColor="@color/colorTitleText" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/TensBills"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/TensNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_bills"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/TensDrawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="0.03"
+                    android:background="@color/colorDrawerBG"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorDrawerText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/TensSafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:layout_weight="0.10"
+                    android:background="@color/colorSafeBG"
+                    android:lines="1"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorSafeText"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/TwentiesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/Twenties"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:background="@color/colorTitleBG"
+                    android:text="@string/twenties"
+                    android:textColor="@color/colorTitleText" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/TwentiesBills"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/TwentiesNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_bills"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/TwentiesDrawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="0.03"
+                    android:background="@color/colorDrawerBG"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorDrawerText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/TwentiesSafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_weight="0.10"
+                    android:background="@color/colorSafeBG"
+                    android:lines="1"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorSafeText"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/FiftiesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/Fifties"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:background="@color/colorTitleBG"
+                    android:text="@string/fifties"
+                    android:textColor="@color/colorTitleText" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/FiftiesBills"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/FiftiesNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_bills"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:ignore="TooManyViews"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/FiftiesDrawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="0.03"
+                    android:background="@color/colorDrawerBG"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorDrawerText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/FiftiesSafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:layout_weight="0.10"
+                    android:background="@color/colorSafeBG"
+                    android:lines="1"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorSafeText"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/HundredsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/Hundreds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:background="@color/colorTitleBG"
+                    android:text="@string/hundreds"
+                    android:textColor="@color/colorTitleText" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/HundredsBills"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/HundredsNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:background="@color/colorInputBG"
+                    android:ems="10"
+                    android:hint="@string/of_bills"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorInputText"
+                    tools:layout_width="match_parent" />
+
+                <TextView
+                    android:id="@+id/HundredsDrawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="0.03"
+                    android:background="@color/colorDrawerBG"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorDrawerText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/HundredsSafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_weight="0.10"
+                    android:background="@color/colorSafeBG"
+                    android:lines="1"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorSafeText"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/Total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:text="@string/total"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/TotalDrawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="0.03"
+                    android:lines="1"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/TotalSafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:lines="1"
+                    android:text="@string/_000_00"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18sp" />
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+</LinearLayout>

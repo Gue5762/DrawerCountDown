@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3d3d3d</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="colorDrawerBG">#c4c4c4</color>
+    <color name="colorDrawerText">#121212</color>
+    <color name="colorSafeBG">#121212</color>
+    <color name="colorSafeText">#c4c4c4</color>
+    <color name="colorInputBG">#ffbaba</color>
+    <color name="colorInputText">#1b1616</color>
+    <color name="colorTitleBG">#31313d</color>
+    <color name="colorTitleText">#babbff</color>
+</resources>
