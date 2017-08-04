@@ -15,7 +15,6 @@ import android.view.View;
 public class CalcActivity extends AppCompatActivity {
     FloatingActionButton btn_refresh;
     EditText drawer_final_d;
-    EditText drawer_final_c;
 
     EditText penny_input;
     TextView penny_drawer;
@@ -129,13 +128,14 @@ public class CalcActivity extends AppCompatActivity {
         total_drawer = (TextView) findViewById(R.id.TotalDrawer);
         total_safe = (TextView) findViewById(R.id.TotalSafe);
 
+        toggleVisibleSafe(false);
+
         btn_refresh.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //defines what you want the drawer to count down to (defaults at $100).
                 int drawerFinal_d = setInput(drawer_final_d.getText().toString(), 100);
-                int drawerFinal_c = setInput(drawer_final_c.getText().toString(), 100);
 
                 //Defines the Pennies for both the drawer and the safe (1: safe 2: drawer).
                 int inputPSafe = 0;
@@ -448,9 +448,9 @@ public class CalcActivity extends AppCompatActivity {
             hundred_safe.setText(R.string._000_00);
         } else if (item.getItemId() == R.id.Calc_Menu_Item) {
             if (item.isChecked()) {
-                item.setChecked(false); calculateSafe = false; }
+                item.setChecked(false); calculateSafe = false; toggleVisibleSafe(false);}
             else {
-                item.setChecked(true); calculateSafe = true; }
+                item.setChecked(true); calculateSafe = true; toggleVisibleSafe(true);}
         }
         return true;
     }
@@ -458,5 +458,31 @@ public class CalcActivity extends AppCompatActivity {
     private int setInput(String input, int elser) {
         if (!input.matches("")) { elser = Integer.parseInt(input); }
         return elser;
+    }
+
+    private void toggleVisibleSafe(boolean visible) {
+
+        int vis = View.INVISIBLE;
+        if (visible) {
+            vis = View.VISIBLE;
+        }
+
+        findViewById(R.id.count_down_tray).setVisibility(vis);
+        findViewById(R.id.Safe).setVisibility(vis);
+        findViewById(R.id.b_space_1).setVisibility(vis);
+        findViewById(R.id.PennySafe).setVisibility(vis);
+        findViewById(R.id.b_space_2).setVisibility(vis);
+        findViewById(R.id.NickelsSafe).setVisibility(vis);
+        findViewById(R.id.b_space_3).setVisibility(vis);
+        findViewById(R.id.DimesSafe).setVisibility(vis);
+        findViewById(R.id.b_space_4).setVisibility(vis);
+        findViewById(R.id.QuartersSafe).setVisibility(vis);
+        findViewById(R.id.DollarsSafe).setVisibility(vis);
+        findViewById(R.id.FivesSafe).setVisibility(vis);
+        findViewById(R.id.TensSafe).setVisibility(vis);
+        findViewById(R.id.TwentiesSafe).setVisibility(vis);
+        findViewById(R.id.FiftiesSafe).setVisibility(vis);
+        findViewById(R.id.HundredsSafe).setVisibility(vis);
+        findViewById(R.id.TotalSafe).setVisibility(vis);
     }
 }
