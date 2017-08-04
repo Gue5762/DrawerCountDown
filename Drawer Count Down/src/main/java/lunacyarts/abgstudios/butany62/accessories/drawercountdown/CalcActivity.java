@@ -77,7 +77,6 @@ public class CalcActivity extends AppCompatActivity {
 
         btn_refresh = (FloatingActionButton) findViewById(R.id.calc);
         drawer_final_d = (EditText) findViewById(R.id.DrawerFinalD);
-        drawer_final_c = (EditText) findViewById(R.id.DrawerFinalC);
 
         penny_input = (EditText) findViewById(R.id.PennyNumber);
         penny_drawer = (TextView) findViewById(R.id.PennyDrawer);
