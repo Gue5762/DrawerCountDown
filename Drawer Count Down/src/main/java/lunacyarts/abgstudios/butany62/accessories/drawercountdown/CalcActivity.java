@@ -3,79 +3,140 @@ package lunacyarts.abgstudios.butany62.accessories.drawercountdown;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
 
 public class CalcActivity extends AppCompatActivity {
+    FloatingActionButton btn_refresh;
+    EditText drawer_final_d;
+    EditText drawer_final_c;
+
+    EditText penny_input;
+    TextView penny_drawer;
+    TextView penny_safe;
+
+    EditText penny_inputR;
+
+    EditText nickel_input;
+    TextView nickel_drawer;
+    TextView nickel_safe;
+
+    EditText nickel_inputR;
+
+    EditText dime_input;
+    TextView dime_drawer;
+    TextView dime_safe;
+
+    EditText dime_inputR;
+
+    EditText quarter_input;
+    TextView quarter_drawer;
+    TextView quarter_safe;
+
+    EditText quarter_inputR;
+
+    EditText dollar_input;
+    TextView dollar_drawer;
+    TextView dollar_safe;
+
+    EditText five_input;
+    TextView five_drawer;
+    TextView five_safe;
+
+    EditText ten_input;
+    TextView ten_drawer;
+    TextView ten_safe;
+
+    EditText twenty_input;
+    TextView twenty_drawer;
+    TextView twenty_safe;
+
+    EditText fifty_input;
+    TextView fifty_drawer;
+    TextView fifty_safe;
+
+    EditText hundred_input;
+    TextView hundred_drawer;
+    TextView hundred_safe;
+
+    TextView total_drawer;
+    TextView total_safe;
+
+    boolean calculateSafe = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calc);
 
-        final FloatingActionButton btn_refresh = (FloatingActionButton) findViewById(R.id.refresh);
-        final FloatingActionButton btn_reset = (FloatingActionButton) findViewById(R.id.reset);
-        final EditText drawer_final = (EditText) findViewById(R.id.DrawerFinal);
+        btn_refresh = (FloatingActionButton) findViewById(R.id.calc);
+        drawer_final_d = (EditText) findViewById(R.id.DrawerFinalD);
+        drawer_final_c = (EditText) findViewById(R.id.DrawerFinalC);
 
-        final EditText penny_input = (EditText) findViewById(R.id.PennyNumber);
-        final TextView penny_drawer = (TextView) findViewById(R.id.PennyDrawer);
-        final TextView penny_safe = (TextView) findViewById(R.id.PennySafe);
+        penny_input = (EditText) findViewById(R.id.PennyNumber);
+        penny_drawer = (TextView) findViewById(R.id.PennyDrawer);
+        penny_safe = (TextView) findViewById(R.id.PennySafe);
 
-        final EditText penny_inputR = (EditText) findViewById(R.id.PennyNumberR);
+        penny_inputR = (EditText) findViewById(R.id.PennyNumberR);
 
-        final EditText nickel_input = (EditText) findViewById(R.id.NickelsNumber);
-        final TextView nickel_drawer = (TextView) findViewById(R.id.NickelsDrawer);
-        final TextView nickel_safe = (TextView) findViewById(R.id.NickelsSafe);
+        nickel_input = (EditText) findViewById(R.id.NickelsNumber);
+        nickel_drawer = (TextView) findViewById(R.id.NickelsDrawer);
+        nickel_safe = (TextView) findViewById(R.id.NickelsSafe);
 
-        final EditText nickel_inputR = (EditText) findViewById(R.id.NickelsNumberR);
+        nickel_inputR = (EditText) findViewById(R.id.NickelsNumberR);
 
-        final EditText dime_input = (EditText) findViewById(R.id.DimesNumber);
-        final TextView dime_drawer = (TextView) findViewById(R.id.DimesDrawer);
-        final TextView dime_safe = (TextView) findViewById(R.id.DimesSafe);
+        dime_input = (EditText) findViewById(R.id.DimesNumber);
+        dime_drawer = (TextView) findViewById(R.id.DimesDrawer);
+        dime_safe = (TextView) findViewById(R.id.DimesSafe);
 
-        final EditText dime_inputR = (EditText) findViewById(R.id.DimesNumberR);
+        dime_inputR = (EditText) findViewById(R.id.DimesNumberR);
 
-        final EditText quarter_input = (EditText) findViewById(R.id.QuartersNumber);
-        final TextView quarter_drawer = (TextView) findViewById(R.id.QuartersDrawer);
-        final TextView quarter_safe = (TextView) findViewById(R.id.QuartersSafe);
+        quarter_input = (EditText) findViewById(R.id.QuartersNumber);
+        quarter_drawer = (TextView) findViewById(R.id.QuartersDrawer);
+        quarter_safe = (TextView) findViewById(R.id.QuartersSafe);
 
-        final EditText quarter_inputR = (EditText) findViewById(R.id.QuartersNumberR);
+        quarter_inputR = (EditText) findViewById(R.id.QuartersNumberR);
 
-        final EditText dollar_input = (EditText) findViewById(R.id.DollarsNumber);
-        final TextView dollar_drawer = (TextView) findViewById(R.id.DollarsDrawer);
-        final TextView dollar_safe = (TextView) findViewById(R.id.DollarsSafe);
+        dollar_input = (EditText) findViewById(R.id.DollarsNumber);
+        dollar_drawer = (TextView) findViewById(R.id.DollarsDrawer);
+        dollar_safe = (TextView) findViewById(R.id.DollarsSafe);
 
-        final EditText five_input = (EditText) findViewById(R.id.FivesNumber);
-        final TextView five_drawer = (TextView) findViewById(R.id.FivesDrawer);
-        final TextView five_safe = (TextView) findViewById(R.id.FivesSafe);
+        five_input = (EditText) findViewById(R.id.FivesNumber);
+        five_drawer = (TextView) findViewById(R.id.FivesDrawer);
+        five_safe = (TextView) findViewById(R.id.FivesSafe);
 
-        final EditText ten_input = (EditText) findViewById(R.id.TensNumber);
-        final TextView ten_drawer = (TextView) findViewById(R.id.TensDrawer);
-        final TextView ten_safe = (TextView) findViewById(R.id.TensSafe);
+        ten_input = (EditText) findViewById(R.id.TensNumber);
+        ten_drawer = (TextView) findViewById(R.id.TensDrawer);
+        ten_safe = (TextView) findViewById(R.id.TensSafe);
 
-        final EditText twenty_input = (EditText) findViewById(R.id.TwentiesNumber);
-        final TextView twenty_drawer = (TextView) findViewById(R.id.TwentiesDrawer);
-        final TextView twenty_safe = (TextView) findViewById(R.id.TwentiesSafe);
+        twenty_input = (EditText) findViewById(R.id.TwentiesNumber);
+        twenty_drawer = (TextView) findViewById(R.id.TwentiesDrawer);
+        twenty_safe = (TextView) findViewById(R.id.TwentiesSafe);
 
-        final EditText fifty_input = (EditText) findViewById(R.id.FiftiesNumber);
-        final TextView fifty_drawer = (TextView) findViewById(R.id.FiftiesDrawer);
-        final TextView fifty_safe = (TextView) findViewById(R.id.FiftiesSafe);
+        fifty_input = (EditText) findViewById(R.id.FiftiesNumber);
+        fifty_drawer = (TextView) findViewById(R.id.FiftiesDrawer);
+        fifty_safe = (TextView) findViewById(R.id.FiftiesSafe);
 
-        final EditText hundred_input = (EditText) findViewById(R.id.HundredsNumber);
-        final TextView hundred_drawer = (TextView) findViewById(R.id.HundredsDrawer);
-        final TextView hundred_safe = (TextView) findViewById(R.id.HundredsSafe);
+        hundred_input = (EditText) findViewById(R.id.HundredsNumber);
+        hundred_drawer = (TextView) findViewById(R.id.HundredsDrawer);
+        hundred_safe = (TextView) findViewById(R.id.HundredsSafe);
 
-        final TextView total_drawer = (TextView) findViewById(R.id.TotalDrawer);
-        final TextView total_safe = (TextView) findViewById(R.id.TotalSafe);
+        total_drawer = (TextView) findViewById(R.id.TotalDrawer);
+        total_safe = (TextView) findViewById(R.id.TotalSafe);
 
         btn_refresh.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //defines what you want the drawer to count down to (defaults at $100).
-                int drawer_final_f = setInput(drawer_final.getText().toString(), 100);
+                int drawerFinal_d = setInput(drawer_final_d.getText().toString(), 100);
+                int drawerFinal_c = setInput(drawer_final_c.getText().toString(), 100);
 
                 //Defines the Pennies for both the drawer and the safe (1: safe 2: drawer).
                 int inputPSafe = 0;
@@ -101,83 +162,33 @@ public class CalcActivity extends AppCompatActivity {
                 //Defines the quarters.
                 int inputQSafe = 0;
                 int inputQDrawerC = setInput(quarter_input.getText().toString(), 0) * 25;
-                int inputQDrawerD = 0;
 
                 //Defines the quarter rolls.
-                int inputQSafeR = 0;
                 int inputQDrawerRD = setInput(quarter_inputR.getText().toString(), 0) * 10;
 
-                //Makes inputP2 divisible by 5 and puts the remainder into P1.
-                int penniesPlaceholder = inputPDrawerC / 5;
-                if (penniesPlaceholder * 5 != inputPDrawerC) {
-                    inputPSafe = inputPDrawerC - (penniesPlaceholder * 5);
-                    inputPDrawerC = penniesPlaceholder * 5;
-                }
+                //Defines the ones.
+                int input1Safe = 0;
+                int input1DrawerD = setInput(dollar_input.getText().toString(), 0);
 
-                //
-                int openNickelRoll = 0;
-                int openDimeRoll = 0;
-                int openQuarterRoll = 0;
+                //Defines the fives.
+                int input5Safe = 0;
+                int input5DrawerD = setInput(five_input.getText().toString(), 0) * 5;
 
-                //Count out coins to get to a dollar amount with no cents.
-                int coinTotal = inputPDrawerC + inputNDrawerC + inputDDrawerC + inputQDrawerC + inputPDrawerRC;
-                int coinRound = coinTotal / 100;
-                while (coinRound * 100 != coinTotal) {
-                    inputNSafe += 5;
-                    inputNDrawerC -= 5;
-                    if (inputNSafe == 10) {
-                        inputNSafe -= 10;
-                        inputNDrawerC += 10;
-                        inputDSafe += 10;
-                        inputDDrawerC -= 10;
-                    }
-                    if (inputNSafe + inputDSafe == 25) {
-                        inputNSafe -= 5;
-                        inputNDrawerC += 5;
-                        inputDSafe -= 20;
-                        inputDDrawerC += 20;
-                        inputQSafe += 25;
-                        inputQDrawerC -= 25;
-                    }
+                //Defines the tens.
+                int input10Safe = 0;
+                int input10DrawerD = setInput(ten_input.getText().toString(), 0) * 10;
 
-                    //Open rolls if needed.
-                    if (inputNDrawerC < 0) {
-                        inputNDrawerRD -= 2;
-                        inputNDrawerC += 2;
-                        openNickelRoll++;
-                    }
-                    if (inputDDrawerC < 0) {
-                        inputDDrawerRD -= 5;
-                        inputDDrawerC += 5;
-                        openDimeRoll++;
-                    }
-                    if (inputQDrawerC < 0) {
-                        inputQDrawerRD -= 10;
-                        inputQDrawerC += 10;
-                        openQuarterRoll++;
-                    }
+                //Defines the twenties.
+                int input20Safe = 0;
+                int input20DrawerD = setInput(twenty_input.getText().toString(), 0) * 20;
 
-                    coinTotal = inputPDrawerC + inputNDrawerC + inputDDrawerC + inputQDrawerC + inputPDrawerRC;
-                    coinRound = coinTotal / 100;
-                }
+                //Defines the fifties.
+                int input50Safe = 0;
+                int input50DrawerD = setInput(fifty_input.getText().toString(), 0) * 50;
 
-                //Booleans to tell whether or not you need change.
-                boolean needPennies = false;
-                if (inputPDrawerC + inputPDrawerRC < 50) {
-                    needPennies = true;
-                }
-                boolean needNickels = false;
-                if (inputNDrawerC + (inputNDrawerRD * 100) < 200) {
-                    needNickels = true;
-                }
-                boolean needDimes = false;
-                if (inputDDrawerC + (inputDDrawerRD * 100) < 500) {
-                    needDimes = true;
-                }
-                boolean needQuarters = false;
-                if (inputQDrawerC + (inputQDrawerRD * 100) < 1000) {
-                    needQuarters = true;
-                }
+                //Defines the hundreds.
+                int input100Safe = 0;
+                int input100DrawerD = setInput(hundred_input.getText().toString(), 0) * 100;
 
                 //Defines the pennies and rolls added together.
                 int outputPCTotal = inputPDrawerC + inputPDrawerRC;
@@ -187,6 +198,131 @@ public class CalcActivity extends AppCompatActivity {
                 while (outputPCTotal >= 100) {
                     outputPCTotal -= 100;
                     outputPDTotal += 1;
+                }
+
+                //
+                int outputNCTotal = inputNDrawerC + (inputNDrawerRD * 100);
+                int outputNDTotal = 0;
+
+                //
+                while (outputNCTotal >= 100) {
+                    outputNCTotal -= 100;
+                    outputNDTotal +=1;
+                }
+
+                //
+                int outputDCTotal = inputDDrawerC + (inputDDrawerRD * 100);
+                int outputDDTotal = 0;
+
+                //
+                while (outputDCTotal >= 100) {
+                    outputDCTotal -= 100;
+                    outputDDTotal += 1;
+                }
+
+                //
+                int outputQCTotal = inputQDrawerC + (inputQDrawerRD * 100);
+                int outputQDTotal = 0;
+
+                //
+                while (outputQCTotal >= 100) {
+                    outputQCTotal -= 100;
+                    outputQDTotal += 1;
+                }
+
+                if (calculateSafe) {
+
+                    while (((inputPDrawerC + inputPDrawerRC + inputNDrawerC + inputDDrawerC + inputQDrawerC) /100) * 100 !=
+                            inputPDrawerC + inputPDrawerRC + inputNDrawerC + inputDDrawerC + inputQDrawerC) {
+
+                        inputPDrawerC -= 1;
+                        inputPSafe += 1;
+                        if (inputPSafe == 5){
+                            inputPSafe -= 5;
+                            inputPDrawerC += 5;
+                            inputNDrawerC -= 5;
+                            inputNSafe += 5;
+                        } if (inputNSafe == 10) {
+                            inputNSafe -= 10;
+                            inputNDrawerC += 10;
+                            inputDDrawerC -= 10;
+                            inputDSafe += 10;
+                        } if (inputNSafe + inputDSafe == 25) {
+                            inputNSafe -= 5;
+                            inputNDrawerC += 5;
+                            inputDSafe -= 10;
+                            inputDDrawerC += 10;
+                            inputQDrawerC -= 25;
+                            inputQSafe += 25;
+                        }
+                    }
+
+                    while (outputPDTotal + outputNDTotal + outputDDTotal + outputQDTotal + inputNDrawerRD + inputDDrawerRD + inputQDrawerRD + input1DrawerD + input5DrawerD + input10DrawerD +
+                            input20DrawerD + input50DrawerD + input100DrawerD > drawerFinal_d) {
+
+                        input1DrawerD -= 1;
+                        input1Safe += 1;
+
+                        if (input1Safe == 5) {
+                            input1DrawerD += 5;
+                            input1Safe -= 5;
+                            input5DrawerD -= 5;
+                            input5Safe += 5;
+                        }
+                        if (input5Safe == 10) {
+                            input5DrawerD += 10;
+                            input5Safe -= 10;
+                            input10DrawerD -= 10;
+                            input10Safe += 10;
+                        }
+                        if (input10Safe == 20) {
+                            input10DrawerD += 20;
+                            input10Safe -= 20;
+                            input20DrawerD -= 20;
+                            input20Safe += 20;
+                        }
+                        if (input20Safe + input10Safe == 50) {
+                            input10DrawerD += 10;
+                            input10Safe -= 10;
+                            input20DrawerD += 40;
+                            input20Safe -= 40;
+                            input50DrawerD -= 50;
+                            input50Safe += 50;
+                        }
+                        if (input50Safe == 100) {
+                            input50DrawerD += 100;
+                            input50Safe -= 100;
+                            input100DrawerD -= 100;
+                            input100Safe += 100;
+                        }
+                    }
+
+                    while (input100DrawerD < 0) {
+                        input50DrawerD -= 100;
+                        input50Safe += 100;
+                        input100Safe -= 100;
+                        input100DrawerD += 100;
+                    }
+                    while (input50DrawerD < 0) {
+                        input10DrawerD -= 10;
+                        input20DrawerD -= 40;
+                        input50Safe -= 50;
+                        input10Safe += 10;
+                        input20Safe += 40;
+                        input50DrawerD += 50;
+                    }
+                    while (input20DrawerD < 0) {
+                        input10DrawerD -= 20;
+                        input20Safe -= 20;
+                        input10Safe += 20;
+                        input20DrawerD += 20;
+                    }
+                    while (input10DrawerD < 0) {
+                        input5DrawerD -= 10;
+                        input10Safe -= 10;
+                        input5Safe += 10;
+                        input10DrawerD += 10;
+                    }
                 }
 
                 //Sets the strings so that if the cents place is below 10, it will add in the 0 that
@@ -200,31 +336,11 @@ public class CalcActivity extends AppCompatActivity {
                 penny_safe.setText(psText + inputPSafe);
                 penny_drawer.setText(outputPDTotal + pdText + outputPCTotal);
 
-                //
-                int outputNCTotal = inputNDrawerC + (inputNDrawerRD * 100);
-                int outputNDTotal = 0;
-
-                //
-                while (outputNCTotal >= 100) {
-                    outputNCTotal -= 100;
-                    outputNDTotal +=1;
-                }
-
                 //Outputs nickel values to chart.
                 String nsText = "0."; if (inputNSafe < 10) { nsText = "0.0"; }
                 String ndText = "."; if (outputNCTotal < 10) { ndText = ".0"; }
                 nickel_safe.setText(nsText + inputNSafe);
                 nickel_drawer.setText(outputNDTotal + ndText + outputNCTotal);
-
-                //
-                int outputDCTotal = inputDDrawerC + (inputDDrawerRD * 100);
-                int outputDDTotal = 0;
-
-                //
-                while (outputDCTotal >= 100) {
-                    outputDCTotal -= 100;
-                    outputDDTotal += 1;
-                }
 
                 //Outputs dime values to chart.
                 String dsText = "0."; if (inputDSafe < 10) { dsText = "0.0"; }
@@ -232,90 +348,35 @@ public class CalcActivity extends AppCompatActivity {
                 dime_safe.setText(dsText + inputDSafe);
                 dime_drawer.setText(outputDDTotal + ddText + outputDCTotal);
 
-                //
-                int outputQCTotal = inputQDrawerC + (inputQDrawerRD * 100);
-                int outputQDTotal = 0;
-
-                //
-                while (outputQCTotal >= 100) {
-                    outputQCTotal -= 100;
-                    outputQDTotal += 1;
-                }
-
                 //Outputs quarter values to chart.
                 String qsText = "0."; if (inputQSafe < 10) { qsText = "0.0"; }
                 String qdText = "."; if (outputQCTotal < 10) { qdText = ".0"; }
                 quarter_safe.setText(qsText + inputQSafe);
                 quarter_drawer.setText(outputQDTotal + qdText + outputQCTotal);
 
-                //Defines the ones.
-                int input1Safe = 0;
-                int input1Drawer = setInput(dollar_input.getText().toString(), 0);
-
-                //Defines the fives.
-                int input5Safe = 0;
-                int input5Drawer = setInput(five_input.getText().toString(), 0) * 5;
-
-                //Defines the tens.
-                int input10Safe = setInput(ten_input.getText().toString(), 0) * 10;
-
-                //Defines the twenties.
-                int input20Safe = setInput(twenty_input.getText().toString(), 0) * 20;
-                int input20Drawer = 0;
-
-                //Adds 20's if the drawer is below Drawer Final.
-                coinTotal = ((inputPDrawerC + inputNDrawerC + inputDDrawerC + inputQDrawerC + inputPDrawerRC) / 100) +
-                        input1Drawer + input5Drawer + inputNDrawerRD + inputDDrawerRD + inputQDrawerRD;
-                while (coinTotal <= drawer_final_f) {
-                    input20Safe -= 20;
-                    input20Drawer += 20;
-                }
-
-                //Counts the drawer down to 100.
-                coinTotal = ((inputPDrawerC + inputNDrawerC + inputDDrawerC + inputQDrawerC + inputPDrawerRC) / 100) +
-                        input1Drawer + input5Drawer + inputNDrawerRD + inputDDrawerRD + inputQDrawerRD + input20Drawer;
-                while (coinTotal > drawer_final_f) {
-                    input1Safe += 1;
-                    input1Drawer -= 1;
-                    if (input1Safe == 5) {
-                        input1Safe -= 5;
-                        input1Drawer += 5;
-                        input5Safe += 5;
-                        input5Drawer -= 5;
-                    }
-                    coinTotal = ((inputPDrawerC + inputNDrawerC + inputDDrawerC + inputQDrawerC + inputPDrawerRC) / 100) +
-                            input1Drawer + input5Drawer + inputNDrawerRD + inputDDrawerRD + inputQDrawerRD + input20Drawer;
-                }
-
                 //Outputs ones.
                 dollar_safe.setText(input1Safe + ".00");
-                dollar_drawer.setText(input1Drawer + ".00");
+                dollar_drawer.setText(input1DrawerD + ".00");
 
                 //Outputs fives.
                 five_safe.setText(input5Safe + ".00");
-                five_drawer.setText(input5Drawer + ".00");
+                five_drawer.setText(input5DrawerD + ".00");
 
                 //Outputs tens.
-                ten_drawer.setText("0.00");
                 ten_safe.setText(input10Safe + ".00");
+                ten_drawer.setText(input10DrawerD + ".00");
 
                 //Outputs twenties.
                 twenty_safe.setText(input20Safe + ".00");
-                twenty_drawer.setText(input20Drawer + ".00");
-
-                //Defines the fifties.
-                int input50Safe = setInput(fifty_input.getText().toString(), 0) * 50;
+                twenty_drawer.setText(input20DrawerD + ".00");
 
                 //Outputs fifties.
-                fifty_drawer.setText("0.00");
                 fifty_safe.setText(input50Safe + ".00");
-
-                //Defines the hundreds.
-                int input100Safe = setInput(hundred_input.getText().toString(), 0);
+                fifty_drawer.setText(input50DrawerD + ".00");
 
                 //Outputs hundreds.
-                hundred_drawer.setText("0.00");
                 hundred_safe.setText(input100Safe + ".00");
+                hundred_drawer.setText(input100DrawerD + ".00");
 
                 int outputT1 = inputPSafe + inputNSafe + inputDSafe + inputQSafe;
                 int outputT1D = input1Safe + input5Safe + input10Safe + input20Safe + input50Safe + input100Safe;
@@ -325,7 +386,8 @@ public class CalcActivity extends AppCompatActivity {
                 }
 
                 int outputT2 = inputPDrawerC + inputPDrawerRC + inputNDrawerC + inputDDrawerC + inputQDrawerC;
-                int outputT2D = inputNDrawerRD + inputDDrawerRD + inputQDrawerRD + input1Drawer + input5Drawer + input20Drawer;
+                int outputT2D = inputNDrawerRD + inputDDrawerRD + inputQDrawerRD + input1DrawerD + input5DrawerD + input10DrawerD + input20DrawerD +
+                        input50DrawerD + input100DrawerD;
                 while (outputT2 >= 100) {
                     outputT2 -= 100;
                     outputT2D += 1;
@@ -339,46 +401,59 @@ public class CalcActivity extends AppCompatActivity {
                 total_drawer.setText(outputT2D + ot2Text + outputT2);
             }
         });
+    }
 
-        btn_reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                penny_input.setText("");
-                nickel_input.setText("");
-                dime_input.setText("");
-                quarter_input.setText("");
-                dollar_input.setText("");
-                five_input.setText("");
-                ten_input.setText("");
-                twenty_input.setText("");
-                fifty_input.setText("");
-                hundred_input.setText("");
-                penny_inputR.setText("");
-                nickel_inputR.setText("");
-                dime_inputR.setText("");
-                quarter_inputR.setText("");
-                penny_drawer.setText(R.string._000_00);
-                penny_safe.setText(R.string._000_00);
-                nickel_drawer.setText(R.string._000_00);
-                nickel_safe.setText(R.string._000_00);
-                dime_drawer.setText(R.string._000_00);
-                dime_safe.setText(R.string._000_00);
-                quarter_drawer.setText(R.string._000_00);
-                quarter_safe.setText(R.string._000_00);
-                dollar_drawer.setText(R.string._000_00);
-                dollar_safe.setText(R.string._000_00);
-                five_drawer.setText(R.string._000_00);
-                five_safe.setText(R.string._000_00);
-                ten_drawer.setText(R.string._000_00);
-                ten_safe.setText(R.string._000_00);
-                twenty_drawer.setText(R.string._000_00);
-                twenty_safe.setText(R.string._000_00);
-                fifty_drawer.setText(R.string._000_00);
-                fifty_safe.setText(R.string._000_00);
-                hundred_drawer.setText(R.string._000_00);
-                hundred_safe.setText(R.string._000_00);
-            }
-        });
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.calc_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.Refresh_Menu_Item) {
+            penny_input.setText("");
+            nickel_input.setText("");
+            dime_input.setText("");
+            quarter_input.setText("");
+            dollar_input.setText("");
+            five_input.setText("");
+            ten_input.setText("");
+            twenty_input.setText("");
+            fifty_input.setText("");
+            hundred_input.setText("");
+            penny_inputR.setText("");
+            nickel_inputR.setText("");
+            dime_inputR.setText("");
+            quarter_inputR.setText("");
+            penny_drawer.setText(R.string._000_00);
+            penny_safe.setText(R.string._000_00);
+            nickel_drawer.setText(R.string._000_00);
+            nickel_safe.setText(R.string._000_00);
+            dime_drawer.setText(R.string._000_00);
+            dime_safe.setText(R.string._000_00);
+            quarter_drawer.setText(R.string._000_00);
+            quarter_safe.setText(R.string._000_00);
+            dollar_drawer.setText(R.string._000_00);
+            dollar_safe.setText(R.string._000_00);
+            five_drawer.setText(R.string._000_00);
+            five_safe.setText(R.string._000_00);
+            ten_drawer.setText(R.string._000_00);
+            ten_safe.setText(R.string._000_00);
+            twenty_drawer.setText(R.string._000_00);
+            twenty_safe.setText(R.string._000_00);
+            fifty_drawer.setText(R.string._000_00);
+            fifty_safe.setText(R.string._000_00);
+            hundred_drawer.setText(R.string._000_00);
+            hundred_safe.setText(R.string._000_00);
+        } else if (item.getItemId() == R.id.Calc_Menu_Item) {
+            if (item.isChecked()) {
+                item.setChecked(false); calculateSafe = false; }
+            else {
+                item.setChecked(true); calculateSafe = true; }
+        }
+        return true;
     }
 
     private int setInput(String input, int elser) {

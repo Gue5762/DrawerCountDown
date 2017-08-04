@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/refresh"
+        android:id="@+id/Refresh_Menu_Item" />
+    <item
+        android:id="@+id/Calc_Menu_Item"
+        android:checkable="true"
+        android:title="@string/calculate_safe" />
+
+</menu>

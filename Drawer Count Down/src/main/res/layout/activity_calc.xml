@@ -21,20 +21,7 @@
         android:orientation="horizontal">
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/reset"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:clickable="true"
-            app:backgroundTint="@android:color/holo_blue_dark"
-            app:fabSize="mini"
-            app:srcCompat="@android:drawable/ic_menu_revert" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/refresh"
+            android:id="@+id/calc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -44,6 +31,24 @@
             app:backgroundTint="@android:color/holo_blue_dark"
             app:fabSize="mini"
             app:srcCompat="@android:drawable/ic_menu_help" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/DrawerFinalD"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/drawer_counted_down_to"
+            android:inputType="number"
+            android:textColor="@color/colorSafeText"
+            android:textColorHint="@color/colorSafeText" />
+
     </LinearLayout>
 
     <ScrollView
@@ -61,24 +66,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:stretchColumns="0">
-
-            <TableRow
-                android:id="@+id/FinalInput"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/DrawerFinal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/drawer_counted_down_to"
-                    android:inputType="number"
-                    android:textColor="@color/colorSafeText"
-                    android:textColorHint="@color/colorSafeText" />
-            </TableRow>
 
             <TableRow
                 android:id="@+id/Titles"
@@ -859,45 +846,49 @@
                     android:textSize="18sp" />
             </TableRow>
 
-            <TableRow
-                android:id="@+id/Total"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:text="@string/total"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/TotalDrawer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_weight="0.03"
-                    android:lines="1"
-                    android:text="@string/_000_00"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/TotalSafe"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:lines="1"
-                    android:text="@string/_000_00"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="18sp" />
-            </TableRow>
-
         </TableLayout>
     </ScrollView>
+
+    <TableRow
+        android:id="@+id/Total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:text="@string/total"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/TotalDrawer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:lines="1"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:text="@string/_000_00"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/TotalSafe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:lines="1"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:text="@string/_000_00"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp" />
+    </TableRow>
 
 </LinearLayout>

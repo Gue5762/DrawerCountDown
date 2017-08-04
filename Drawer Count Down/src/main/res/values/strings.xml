@@ -19,4 +19,6 @@
     <string name="fifties">Fifties</string>
     <string name="hundreds">Hundreds</string>
     <string name="total">Total</string>
+    <string name="refresh">Refresh</string>
+    <string name="calculate_safe">Calculate Safe</string>
 </resources>
